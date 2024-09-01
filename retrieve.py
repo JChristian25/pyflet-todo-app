@@ -1,11 +1,15 @@
 import json
 
 def return_info():
-    title = "Sample Algorithm for baking a cake"
-    text = """
-    First, you should create a model
-    Next, you should choose your ingredients
-    Then, you should bake your cake
-    Finally, enjoy your delicious cake!
-    """
+    print("retrieve!")
+
+    data = {}
+    
+    with open('./tasks/test_tasks.json', 'r') as file:
+        data = json.load(file) 
+        file.close()
+    
+    title = data.get('title', '')
+    text = data.get('text', '')
+
     return title, text
